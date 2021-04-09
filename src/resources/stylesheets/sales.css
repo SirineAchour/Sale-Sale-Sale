@@ -10,7 +10,7 @@
     -fx-border-color: rgba(202,204,212,1);
 }
 
-.clickable:hover{
+.clickable:hover, .combo-box:hover{
     -fx-cursor : hand;
 }
 .old_price, #old_price{
@@ -35,8 +35,13 @@
     -fx-stroke-width: 1;
     -fx-fill: black;
 }
-.button:hover, .combo-box:hover{
+.button:hover{
     -fx-cursor: hand;
+    -fx-text-fill: white;
+    -fx-background-color: rgba(169,49,242,1);
+    -fx-border-color: rgba(169,49,242,1);
+        -fx-border-style: solid;
+
 }
 
 .combo-box .combo-box-popup .list-cell:hover {

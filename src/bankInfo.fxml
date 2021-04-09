@@ -67,7 +67,7 @@
                     </HBox>
                     <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
                         <children>
-                            <Button mnemonicParsing="false" onAction="#nextClicked" text="Next">
+                            <Button mnemonicParsing="false" onAction="#nextClicked" text="Finish Transaction">
                                 <HBox.margin>
                                     <Insets left="10.0" />
                                 </HBox.margin>
@@ -88,7 +88,7 @@
     </FlowPane>
    <FlowPane alignment="CENTER" layoutX="242.0" layoutY="102.0" prefHeight="40.0" prefWidth="118.0" styleClass="image-border" AnchorPane.leftAnchor="242.0" AnchorPane.rightAnchor="240.0">
       <children>
-         <Text fx:id="total" strokeType="OUTSIDE" strokeWidth="0.0" text="TOTAL : 8898$" textAlignment="CENTER">
+         <Text fx:id="total" strokeType="OUTSIDE" strokeWidth="0.0" text="TOTAL : 0$" textAlignment="CENTER">
             <font>
                <Font name="System Bold Italic" size="12.0" />
             </font></Text>

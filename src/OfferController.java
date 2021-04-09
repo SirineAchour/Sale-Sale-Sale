@@ -42,7 +42,6 @@ public class OfferController {
     @FXML
     private Button addToCartButton;
     public static Property<Offer> offer;
-    RotateTransition rotate;
 
     public OfferController(){
 
@@ -51,17 +50,6 @@ public class OfferController {
     public void initialize(){
 
         OfferController.offer = new SimpleObjectProperty<Offer>();
-
-        rotate = new RotateTransition();
-        rotate.setAxis(Rotate.Z_AXIS);
-        rotate.setByAngle(20);
-        rotate.setCycleCount(100);
-        rotate.setDuration(Duration.millis(100));
-        rotate.setAutoReverse(true);
-        rotate.setNode(addToCartButton);
-
-
-
         OfferController.offer.addListener(new ChangeListener<Offer>() {
             @Override
             public void changed(ObservableValue<? extends Offer> observableValue, Offer old, Offer offer) {
@@ -82,19 +70,18 @@ public class OfferController {
 
     @FXML
     private void addToCart(ActionEvent event){
-        Timeline timeline = new Timeline(
-                new KeyFrame(Duration.ZERO, e -> {rotate.play();}),
-                new KeyFrame(Duration.seconds(1), e -> {
-                    rotate.stop();
-                    rotate.setByAngle(-20);
-                    Timeline timeline_2 = new Timeline(
-                            new KeyFrame(Duration.ZERO, ee -> {rotate.play();}),
-                            new KeyFrame(Duration.seconds(1), ee -> {
-                                rotate.stop();
-                            }));
-                })
-        );
-        timeline.play();
+        RotateTransition rotate = new RotateTransition();
+        rotate.setAxis(Rotate.Z_AXIS);
+        rotate.setFromAngle(0);
+        rotate.setToAngle(360);
+        //rotate.setByAngle(20);
+        rotate.setCycleCount(2); //100
+        rotate.setDuration(Duration.millis(500));
+        rotate.setAutoReverse(true);
+        rotate.setNode(addToCartButton);
+        rotate.play();
+
+
         ArrayList<Offer> newlist = new ArrayList<Offer>(CartController.cart_elements.getValue());
         newlist.add(offer.getValue());
         CartController.cart_elements.setValue(newlist);

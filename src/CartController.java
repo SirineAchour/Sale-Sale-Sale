@@ -25,10 +25,12 @@ public class CartController {
     @FXML
     public Button buyButton;
     @FXML
+    public Button clearButton;
+    @FXML
     private VBox cartItems;
     static public Property<ArrayList<Offer>> cart_elements;
     static public int ex_scene;
-    float total = 0;
+    float total = 0f;
 
     public CartController(){
             }
@@ -37,11 +39,14 @@ public class CartController {
         ex_scene = 1;
         cart_elements = new SimpleObjectProperty<ArrayList<Offer>>();
         cart_elements.setValue(new ArrayList<Offer>());
+        buyButton.setDisable(true);
+        clearButton.setDisable(true);
 
         cart_elements.addListener(new ChangeListener<ArrayList<Offer>>() {
             @Override
             public void changed(ObservableValue<? extends ArrayList<Offer>> observableValue, ArrayList<Offer> offers, ArrayList<Offer> t1) {
                 cartItems.getChildren().clear();
+                total = 0;
                 ArrayList<Offer> cart_elementsValue = cart_elements.getValue();
                 for(int i=0; i!=cart_elements.getValue().size(); i++){
                     Offer element = cart_elementsValue.get(i);
@@ -49,10 +54,12 @@ public class CartController {
                     cartItems.getChildren().add(i,addElementToCart(element));
                 }
                 total_price.setText("Total : "+String.valueOf(total+" $"));
-                if(total == 0){
+                if(total == 0f){
                     buyButton.setDisable(true);
+                    clearButton.setDisable(true);
                 }else{
                     buyButton.setDisable(false);
+                    clearButton.setDisable(false);
                 }
             }
         });
@@ -72,6 +79,7 @@ public class CartController {
         iv.setLayoutY(9);
         iv.setPickOnBounds(true);
         iv.setPreserveRatio(true);
+        iv.getStyleClass().add("clickable");
         AnchorPane.setLeftAnchor(iv,21.0);
         iv.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -113,6 +121,7 @@ return ap;
     }
 
     public void buyButtonClicked(ActionEvent event) {
+
         FormController.ex_scene=3;
         Main.sceneNumber.setValue(4);
         BankInfoController.totalProperty.setValue("TOTAL: "+total+"$");
