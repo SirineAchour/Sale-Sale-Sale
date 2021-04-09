@@ -31,9 +31,11 @@
    </ScrollPane>
    <AnchorPane layoutX="106.0" layoutY="382.0" prefHeight="69.0" prefWidth="627.0" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="382.0">
       <children>
-            <Button fx:id="buyButton" styleClass="image-border" layoutX="531.0"  layoutY="35.0" mnemonicParsing="false" text="Buy" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="35.0" />
+            <Button fx:id="buyButton" onAction="#buyButtonClicked" styleClass="image-border" layoutX="531.0"  layoutY="35.0" mnemonicParsing="false" text="Buy" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="35.0" />
               <Text fx:id="total_price" layoutX="583.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total : 0$" AnchorPane.rightAnchor="18.125" AnchorPane.topAnchor="5.05078125" />
-         <Button fx:id="clearButton" styleClass="image-border" layoutX="578.0" layoutY="35.0" mnemonicParsing="false" text="Clear" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="35.0" />
+         <Button fx:id="clearButton" styleClass="image-border" layoutX="578.0" layoutY="35.0"
+                 onAction="#clearClicked"
+                 mnemonicParsing="false" text="Clear" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="35.0" />
       </children>
    </AnchorPane>
    <Button layoutX="684.0" layoutY="80.0" mnemonicParsing="false" onAction="#leaveCart" text="x" AnchorPane.rightAnchor="61.0" />

@@ -6,6 +6,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -45,6 +46,14 @@ public class Main extends Application {
         cart_scene.getStylesheets().add("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
         cart_scene.getStylesheets().add(getClass().getResource("resources/stylesheets/sales.css").toExternalForm());
 
+        Scene form_scene = new Scene(FXMLLoader.load(getClass().getResource("form.fxml")));
+        form_scene.getStylesheets().add("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+        form_scene.getStylesheets().add(getClass().getResource("resources/stylesheets/sales.css").toExternalForm());
+
+        Scene bank_info_scene = new Scene(FXMLLoader.load(getClass().getResource("bankInfo.fxml")));
+        bank_info_scene.getStylesheets().add("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+        bank_info_scene.getStylesheets().add(getClass().getResource("resources/stylesheets/sales.css").toExternalForm());
+
         // when we change the value of this.scene_number, the scene changes
         ChangeListener<Number> scene_changed_listener = new ChangeListener<Number>() {
             @Override
@@ -59,6 +68,12 @@ public class Main extends Application {
                      case 3:
                          primaryStage.setScene(cart_scene);
                          break;
+                    case 4:
+                        primaryStage.setScene(form_scene);
+                        break;
+                    case 5:
+                        primaryStage.setScene(bank_info_scene);
+                        break;
                 }
             }
         };
@@ -71,6 +86,7 @@ public class Main extends Application {
         primaryStage.setWidth(790);
         primaryStage.setMinWidth(790);
         primaryStage.setMinHeight(610);
+        primaryStage.getIcons().add(new Image("resources/coupon.png"));
         primaryStage.setTitle("Sale! Sale! Sale!");
         primaryStage.show();
     }

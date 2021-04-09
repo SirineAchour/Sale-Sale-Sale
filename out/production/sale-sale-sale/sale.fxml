@@ -62,7 +62,7 @@
                               <Insets right="20.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" styleClass="image-border" text="Buy" />
+                        <Button mnemonicParsing="false" styleClass="image-border" text="Buy" onAction="#buyClicked"/>
                      </children>
                      <opaqueInsets>
                         <Insets />

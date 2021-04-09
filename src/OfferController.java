@@ -84,11 +84,14 @@ public class OfferController {
     private void addToCart(ActionEvent event){
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.ZERO, e -> {rotate.play();}),
-                new KeyFrame(Duration.seconds(0.5), e -> {
+                new KeyFrame(Duration.seconds(1), e -> {
                     rotate.stop();
-                    System.out.println(addToCartButton.getRotate());
-                    addToCartButton.setRotate(0);
-
+                    rotate.setByAngle(-20);
+                    Timeline timeline_2 = new Timeline(
+                            new KeyFrame(Duration.ZERO, ee -> {rotate.play();}),
+                            new KeyFrame(Duration.seconds(1), ee -> {
+                                rotate.stop();
+                            }));
                 })
         );
         timeline.play();
@@ -104,5 +107,11 @@ public class OfferController {
     public void goToCart(ActionEvent event) {
         Main.sceneNumber.setValue(3);
         CartController.ex_scene=2;
+    }
+
+    public void buyClicked(ActionEvent event) {
+        Main.sceneNumber.setValue(4);
+        BankInfoController.totalProperty.setValue("TOTAL: "+String.valueOf(offer.getValue().new_price)+"$");
+        FormController.ex_scene = 2;
     }
 }

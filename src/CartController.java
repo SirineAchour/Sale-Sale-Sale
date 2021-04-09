@@ -28,6 +28,7 @@ public class CartController {
     private VBox cartItems;
     static public Property<ArrayList<Offer>> cart_elements;
     static public int ex_scene;
+    float total = 0;
 
     public CartController(){
             }
@@ -41,7 +42,6 @@ public class CartController {
             @Override
             public void changed(ObservableValue<? extends ArrayList<Offer>> observableValue, ArrayList<Offer> offers, ArrayList<Offer> t1) {
                 cartItems.getChildren().clear();
-                float total = 0;
                 ArrayList<Offer> cart_elementsValue = cart_elements.getValue();
                 for(int i=0; i!=cart_elements.getValue().size(); i++){
                     Offer element = cart_elementsValue.get(i);
@@ -110,5 +110,15 @@ return ap;
 
     public void leaveCart(ActionEvent event) {
         Main.sceneNumber.setValue(ex_scene);
+    }
+
+    public void buyButtonClicked(ActionEvent event) {
+        FormController.ex_scene=3;
+        Main.sceneNumber.setValue(4);
+        BankInfoController.totalProperty.setValue("TOTAL: "+total+"$");
+    }
+
+    public void clearClicked(ActionEvent event) {
+        cart_elements.setValue(new ArrayList<Offer>());
     }
 }
