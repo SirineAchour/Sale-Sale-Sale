@@ -1,3 +1,7 @@
+import javafx.animation.KeyFrame;
+import javafx.animation.ScaleTransition;
+import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,6 +17,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 import models.Offer;
 
 import java.io.File;
@@ -29,6 +34,8 @@ public class OffersController {
     private ComboBox categories;
     @FXML
     private ComboBox sortBy;
+    @FXML
+    private Text sale;
 
     @FXML
     private void initialize() {
@@ -86,10 +93,10 @@ public class OffersController {
                 //go to details scene
                 Main.sceneNumber.setValue(2);
                 //set offer for details
-                //OfferController.offer_set = true;
                 OfferController.offer.setValue(offer);
             }
         });
+        iv.getStyleClass().add("clickable");
         Image im = new Image("resources/categories/" + offer.category.toLowerCase() + "/" + offer.filename);
         iv.setImage(im);
         Text txt = new Text();
@@ -104,20 +111,41 @@ public class OffersController {
         Text txt_old_price = new Text();
         txt_old_price.setStrokeType(StrokeType.OUTSIDE);
         txt_old_price.setStrokeWidth(0);
-        txt_old_price.setText(String.valueOf(offer.old_price));
+        txt_old_price.setText(String.valueOf(offer.old_price)+"$");
+        txt_old_price.getStyleClass().add("old_price");
 
         Text txt_new_price = new Text();
         txt_new_price.setStrokeType(StrokeType.OUTSIDE);
         txt_new_price.setStrokeWidth(0);
-        txt_new_price.setText(String.valueOf(offer.old_price * offer.percentage));
+        txt_new_price.setText("    "+String.valueOf(offer.new_price)+"$");
+        txt_new_price.getStyleClass().add("new_price");
 
         hb.getChildren().add(txt_old_price);
         hb.getChildren().add(txt_new_price);
 
+        Text reduction = new Text();
+        reduction.setStrokeType(StrokeType.OUTSIDE);
+        reduction.setStrokeWidth(0);
+        reduction.setText(String.valueOf((int)(offer.percentage*100))+"%");
+        reduction.getStyleClass().add("reduction");
+
+        /*  animation for reduction **/
+       /* if(offer.percentage>=0.50){
+            ScaleTransition scale = new ScaleTransition();
+            scale.setByX(0.5f);
+            scale.setByY(0.5f);
+            scale.setDuration(Duration.millis(500));
+            scale.setCycleCount(500);
+            scale.setAutoReverse(true);
+            scale.setNode(reduction);
+            scale.play();
+        }
+*/
         vb.getChildren().add(iv);
         vb.getChildren().add(txt);
         vb.getChildren().add(hb);
-        offers.setMargin(vb, new Insets(0, 20, 50, 0));
+        vb.getChildren().add(reduction);
+        FlowPane.setMargin(vb, new Insets(0, 20, 50, 0));
 
         return vb;
     }
@@ -159,8 +187,8 @@ public class OffersController {
             Collections.sort(sorted, new Comparator<Offer>() {
                 @Override
                 public int compare(Offer offer, Offer t1) {
-                    float o_price = offer.old_price * offer.percentage;
-                    float t_price = t1.old_price * t1.percentage;
+                    float o_price = offer.new_price;
+                    float t_price = t1.new_price;
                     return (o_price > t_price) ? -1 : (o_price == t_price) ? 0 : 1;
                 }
             });
@@ -172,8 +200,8 @@ public class OffersController {
             Collections.sort(sorted, new Comparator<Offer>() {
                 @Override
                 public int compare(Offer offer, Offer t1) {
-                    float o_price = offer.old_price * offer.percentage;
-                    float t_price = t1.old_price * t1.percentage;
+                    float o_price = offer.new_price;
+                    float t_price = t1.new_price;
                     return (o_price < t_price) ? -1 : (o_price == t_price) ? 0 : 1;
                 }
             });

@@ -10,29 +10,27 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
-            xmlns="http://javafx.com/javafx/10"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="OfferController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="433.0" prefWidth="767.0"
+            styleClass="anchor-pane" xmlns="http://javafx.com/javafx/10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OfferController">
     <children>
-        <VBox alignment="TOP_CENTER" layoutY="22.0" prefHeight="51.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <VBox alignment="TOP_CENTER" layoutY="14.0" prefHeight="44.0" prefWidth="767.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sale! Sale! Sale!" wrappingWidth="150.0">
+                <Text fx:id="sale" strokeType="OUTSIDE" strokeWidth="0.0" text="Sale! Sale! Sale!" textAlignment="CENTER" wrappingWidth="508.0">
                     <font>
-                        <Font size="20.0" />
+                        <Font size="40.0" />
                     </font>
                 </Text>
             </children>
         </VBox>
-      <ImageView fx:id="image" fitHeight="290.0" fitWidth="277.0" layoutX="59.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="59.0" AnchorPane.topAnchor="118.0">
+      <ImageView fx:id="image" fitHeight="258.0" fitWidth="189.0" layoutX="110.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true" styleClass="image-border">
       </ImageView>
-      <Button fx:id="backButton" layoutX="59.0" layoutY="73.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="27.0" prefWidth="68.0" text="&lt; Back" AnchorPane.leftAnchor="59.0" />
-      <Button fx:id="cartButton" onAction="#goToCart"
-              layoutX="671.0" layoutY="74.0" mnemonicParsing="false" text="Cart" AnchorPane.rightAnchor="58.0" />
-      <FlowPane layoutX="352.0" layoutY="118.0" prefHeight="290.0" prefWidth="363.0" AnchorPane.leftAnchor="352.0" AnchorPane.rightAnchor="52.0">
+      <Button fx:id="backButton" layoutX="82.0" layoutY="74.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="27.0" prefWidth="68.0" text="&lt; Back" AnchorPane.leftAnchor="82.0" />
+      <Button fx:id="cartButton" layoutX="655.0" layoutY="75.0" mnemonicParsing="false" onAction="#goToCart" text="Cart" AnchorPane.rightAnchor="74.0" />
+      <FlowPane layoutX="330.0" layoutY="161.0" prefHeight="272.0" prefWidth="363.0" AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="74.0">
          <children>
             <VBox prefHeight="169.0" prefWidth="363.0">
                <children>
-                  <Text fx:id="name" strokeType="OUTSIDE" strokeWidth="0.0" text="Product name gd5 fe5" wrappingWidth="362.861328125">
+                  <Text fx:id="name" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="item-title" text="Product name gd5 fe5" wrappingWidth="362.861328125">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -42,20 +40,29 @@
                   </Text>
                   <Text fx:id="store_name" strokeType="OUTSIDE" strokeWidth="0.0" text="store name " wrappingWidth="357.71875" />
                   <Text fx:id="store_location" strokeType="OUTSIDE" strokeWidth="0.0" text="store location" wrappingWidth="356.32421875" />
-                  <Text fx:id="description" strokeType="OUTSIDE" strokeWidth="0.0" text="Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text " wrappingWidth="357.32421875">
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                         <Text fx:id="old_price" strokeType="OUTSIDE" strokeWidth="0.0" text="price " wrappingWidth="66.71875" />
+                        <Text fx:id="new_price" strokeType="OUTSIDE" strokeWidth="0.0" text="price " wrappingWidth="80.71875" />
+                        <Text fx:id="reduction" strokeType="OUTSIDE" strokeWidth="0.0" text="price " wrappingWidth="34.71875" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                   <Text fx:id="description" strokeType="OUTSIDE" strokeWidth="0.0" text="Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text " wrappingWidth="357.32421875">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </Text>
                   <HBox alignment="TOP_RIGHT" prefHeight="25.0" prefWidth="362.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Add to cart"
-                        onAction="#addToCart">
+                        <Button fx:id="addToCartButton" mnemonicParsing="false" onAction="#addToCart" styleClass="image-border" text="Add to cart">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Buy" />
+                        <Button mnemonicParsing="false" styleClass="image-border" text="Buy" />
                      </children>
                      <opaqueInsets>
                         <Insets />

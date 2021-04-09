@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
-                xmlns="http://javafx.com/javafx/10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CartController">
-    <VBox alignment="TOP_CENTER" layoutY="22.0" prefHeight="51.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="509.0" prefWidth="789.0" styleClass="anchor-pane"
+            xmlns="http://javafx.com/javafx/10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CartController">
+    <VBox alignment="TOP_CENTER" layoutY="14.0" prefHeight="51.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sale! Sale! Sale!" wrappingWidth="150.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" fx:id="sale" text="Sale! Sale! Sale!" textAlignment="CENTER" wrappingWidth="579.0">
                 <font>
-                    <Font size="20.0" />
+                    <Font size="40.0" />
                 </font>
             </Text>
         </children>
@@ -27,29 +23,18 @@
          <Font size="14.0" />
       </font>
    </Text>
-   <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="51.0" layoutY="110.0" prefHeight="278.0" prefWidth="655.0" style="-fx-border-color: white;" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="61.0">
+   <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="56.0" layoutY="124.0" prefHeight="245.0" prefWidth="677.0" style="-fx-border-color: white;" styleClass="scroll-pane" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="56.0">
       <content>
-          <VBox fx:id="cartItems"
-                  alignment="TOP_RIGHT" prefHeight="141.0" prefWidth="653.0" style="-fx-border-color: white;">
-              <children>
-
-                  <HBox fx:id="total" alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="621.0">
-                      <children>
-                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total : " />
-                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="800$" fx:id="total_price"/>
-                      </children>
-                      <VBox.margin>
-                          <Insets right="15.0" />
-                      </VBox.margin>
-                  </HBox>
-                  <Button mnemonicParsing="false" text="Buy" fx:id="buyButton">
-                      <VBox.margin>
-                          <Insets right="15.0" />
-                      </VBox.margin>
-                  </Button>
-              </children>
+          <VBox fx:id="cartItems" alignment="TOP_RIGHT" prefHeight="251.0" prefWidth="673.0" style="-fx-border-color: white;" styleClass="flow-pane">
           </VBox>
       </content>
    </ScrollPane>
-   <Button layoutX="684.0" layoutY="80.0" mnemonicParsing="false" text="x" onAction="#leaveCart"  AnchorPane.rightAnchor="61.0" />
+   <AnchorPane layoutX="106.0" layoutY="382.0" prefHeight="69.0" prefWidth="627.0" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="382.0">
+      <children>
+            <Button fx:id="buyButton" styleClass="image-border" layoutX="531.0"  layoutY="35.0" mnemonicParsing="false" text="Buy" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="35.0" />
+              <Text fx:id="total_price" layoutX="583.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total : 0$" AnchorPane.rightAnchor="18.125" AnchorPane.topAnchor="5.05078125" />
+         <Button fx:id="clearButton" styleClass="image-border" layoutX="578.0" layoutY="35.0" mnemonicParsing="false" text="Clear" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="35.0" />
+      </children>
+   </AnchorPane>
+   <Button layoutX="684.0" layoutY="80.0" mnemonicParsing="false" onAction="#leaveCart" text="x" AnchorPane.rightAnchor="61.0" />
 </AnchorPane>

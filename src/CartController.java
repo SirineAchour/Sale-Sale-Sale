@@ -40,24 +40,15 @@ public class CartController {
         cart_elements.addListener(new ChangeListener<ArrayList<Offer>>() {
             @Override
             public void changed(ObservableValue<? extends ArrayList<Offer>> observableValue, ArrayList<Offer> offers, ArrayList<Offer> t1) {
-                for(int i=0; i!=cartItems.getChildren().size(); i++){
-                    Node nod=cartItems.getChildren().get(i);
-                    System.out.println(nod.getId()!=null);
-                    if(nod.getId()!=null && nod.getId().equals("total")){
-                        break;
-                    }
-                    cartItems.getChildren().remove(i);
-                    i--;
-
-                }
+                cartItems.getChildren().clear();
                 float total = 0;
                 ArrayList<Offer> cart_elementsValue = cart_elements.getValue();
                 for(int i=0; i!=cart_elements.getValue().size(); i++){
                     Offer element = cart_elementsValue.get(i);
-                    total+= element.old_price*element.percentage;
+                    total+= element.new_price;
                     cartItems.getChildren().add(i,addElementToCart(element));
                 }
-                total_price.setText(String.valueOf(total+" $"));
+                total_price.setText("Total : "+String.valueOf(total+" $"));
                 if(total == 0){
                     buyButton.setDisable(true);
                 }else{
@@ -72,6 +63,7 @@ public class CartController {
         ap.prefHeight(34);
         ap.prefWidth(653);
         ap.setStyle("-fx-border-color: white;");
+        ap.getStyleClass().add("image-border");
 
         ImageView iv = new ImageView();
         iv.setFitHeight(19);
@@ -104,7 +96,7 @@ public class CartController {
         Text item_price = new Text();
         item_price.setStrokeType(StrokeType.OUTSIDE);
         item_price.setStrokeWidth(0);
-        item_price.setText(String.valueOf(offer.percentage*offer.old_price));
+        item_price.setText(String.valueOf(offer.new_price));
         item_price.setLayoutX(606);
         item_price.setLayoutY(21);
         AnchorPane.setRightAnchor(item_price, 23.59375);

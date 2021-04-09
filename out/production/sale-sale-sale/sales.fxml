@@ -10,33 +10,34 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            xmlns="http://javafx.com/javafx/10" xmlns:fx="http://javafx.com/fxml/1"
-            style="-fx-background-color: rgba(246,184,226,0.33);"
-            fx:controller="OffersController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0"
+            prefWidth="600.0" style="-fx-background-color: rgba(246,184,226,0.2);" xmlns="http://javafx.com/javafx/10"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="OffersController">
 
     <children>
-        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="51.0" layoutY="137.0" prefHeight="249.0" prefWidth="498.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="137.0">
+        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="51.0" layoutY="149.0" prefHeight="269.0" prefWidth="498.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="149.0">
             <content>
-                <FlowPane fx:id="offers" prefHeight="239.0" prefWidth="496.0" style="-fx-border-color: transparent;">
+                <FlowPane fx:id="offers" prefHeight="253.0" prefWidth="496.0" style="-fx-border-color: transparent;" styleClass="flow-pane">
                     <opaqueInsets>
                         <Insets />
                     </opaqueInsets>
+               <padding>
+                  <Insets left="10.0" top="10.0" />
+               </padding>
                 </FlowPane>
             </content>
         </ScrollPane>
-        <ComboBox fx:id="categories" layoutX="51.0" layoutY="89.0" onAction="#categorySelected" prefWidth="150.0" promptText="Categories" visibleRowCount="7" />
-        <ComboBox fx:id="sortBy" layoutX="514.0" layoutY="89.0" onAction="#sortBySelected" prefWidth="150.0" promptText="Sort By" visibleRowCount="7" AnchorPane.rightAnchor="103.0" />
-        <VBox alignment="BASELINE_CENTER" layoutY="22.0" prefHeight="51.0" prefWidth="600.0"
-              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <ComboBox fx:id="categories" layoutX="51.0" layoutY="102.0" onAction="#categorySelected" prefWidth="150.0" promptText="Categories" visibleRowCount="7" styleClass="combo-box"/>
+        <ComboBox fx:id="sortBy" layoutX="347.0" layoutY="102.0" onAction="#sortBySelected" prefWidth="150.0" promptText="Sort By" visibleRowCount="7" AnchorPane.rightAnchor="103.0" styleClass="combo-box" />
+        <VBox alignment="BASELINE_CENTER" prefHeight="36.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sale! Sale! Sale!" wrappingWidth="150.0">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" fx:id="sale" text="Sale! Sale! Sale!" textAlignment="CENTER" wrappingWidth="440.0">
                     <font>
-                        <Font size="20.0" />
+                        <Font size="40.0" />
                     </font>
                 </Text>
             </children>
         </VBox>
-      <Button layoutX="678.0" layoutY="89.0" mnemonicParsing="false" onAction="#goToCart" text="Cart" AnchorPane.rightAnchor="51.0" />
+      <Button layoutX="511.0" layoutY="102.0" mnemonicParsing="false" onAction="#goToCart" text="Cart" AnchorPane.rightAnchor="51.0" />
     </children>
 </AnchorPane>

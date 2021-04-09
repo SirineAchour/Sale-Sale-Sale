@@ -1,3 +1,6 @@
+import javafx.animation.KeyFrame;
+import javafx.animation.RotateTransition;
+import javafx.animation.Timeline;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
@@ -7,7 +10,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
+import javafx.scene.transform.Rotate;
+import javafx.util.Duration;
 import models.Offer;
 
 import java.util.ArrayList;
@@ -27,13 +33,35 @@ public class OfferController {
     private Text store_location;
     @FXML
     private Text description;
+    @FXML
+    private Text old_price;
+    @FXML
+    private Text new_price;
+    @FXML
+    private Text reduction;
+    @FXML
+    private Button addToCartButton;
     public static Property<Offer> offer;
+    RotateTransition rotate;
 
+    public OfferController(){
 
+    }
     @FXML
     public void initialize(){
 
         OfferController.offer = new SimpleObjectProperty<Offer>();
+
+        rotate = new RotateTransition();
+        rotate.setAxis(Rotate.Z_AXIS);
+        rotate.setByAngle(20);
+        rotate.setCycleCount(100);
+        rotate.setDuration(Duration.millis(100));
+        rotate.setAutoReverse(true);
+        rotate.setNode(addToCartButton);
+
+
+
         OfferController.offer.addListener(new ChangeListener<Offer>() {
             @Override
             public void changed(ObservableValue<? extends Offer> observableValue, Offer old, Offer offer) {
@@ -43,6 +71,10 @@ public class OfferController {
                 name.setText(offer.title);
                 store_name.setText(offer.store.name);
                 store_location.setText(offer.store.location);
+                old_price.setText(String.valueOf(offer.old_price+"$"));
+                new_price.setText(String.valueOf(offer.new_price)+"$");
+                reduction.setText(String.valueOf((int)(offer.percentage*100))+"%");
+                //playing the transition
                 image.setImage(new Image("resources/categories/" +offer.category.toLowerCase()+"/"+offer.filename));
             }
         });
@@ -50,11 +82,19 @@ public class OfferController {
 
     @FXML
     private void addToCart(ActionEvent event){
-        System.out.println(CartController.cart_elements.getValue().size());
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.ZERO, e -> {rotate.play();}),
+                new KeyFrame(Duration.seconds(0.5), e -> {
+                    rotate.stop();
+                    System.out.println(addToCartButton.getRotate());
+                    addToCartButton.setRotate(0);
+
+                })
+        );
+        timeline.play();
         ArrayList<Offer> newlist = new ArrayList<Offer>(CartController.cart_elements.getValue());
         newlist.add(offer.getValue());
         CartController.cart_elements.setValue(newlist);
-        System.out.println(CartController.cart_elements.getValue().size());
     }
     @FXML
     private void backButtonClicked(ActionEvent event) {

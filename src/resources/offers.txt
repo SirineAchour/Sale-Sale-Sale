@@ -3,12 +3,12 @@ Red Statue Woho,Origami\nRed person of big face big ears and legs,55.98,0.3,art-
 Pigeon Man,White statue of man with pigeon head and wings doing pushups,100,0.2,art-2.jpg,Art,1
 Face,Origami\nWhite face,60,0.3,art-3.jpg,Art,1
 Rogue Poster,Poster of rogue.,20,0.2,art-4.jpg,Art,1
-Furr Coat,Grey white furr coat,200,0.3,coat-1.jpg,Coats,2
+Furr Coat,Grey white furr coat,200,0.6,coat-1.jpg,Coats,2
 Fancy Dress,Yellow full length dress\nThin straps,100,0.3,dress-1.jpg,Dresses,3
 Super Fancy Dress,Gold full length dress\nNo straps,200,0.3,dress-2.jpg,Dresses,2
 Disco Dress,Shiny pink mid length dress\nThin straps,80,0.2,dress-3.jpg,Dresses,3
-Red Dress,Red velvet full length dress\nThin straps,60,0.3,dress-4.jpg,Dresses,3
-Black Dress,Black velvet dress\nMini length\nLong flowey sleeves,100,0.3,dress-5.jpg,Dresses,3
+Red Dress,Red velvet full length dress\nThin straps,60,0.5,dress-4.jpg,Dresses,3
+Black Dress,Black velvet dress \n Mini length\nLong flowey sleeves,100,0.3,dress-5.jpg,Dresses,3
 Fun Fancy Dress,Pink dress\nShort in the font\nLong in the back\nThin straps,300,0.4,dress-6.jpg,Dresses,2
 Rings,A bunch of rings,60,0.3,jewlery-1.jpg,Jewlery,2
 Black Witchy Leggings,Stretchy leggings,70,0.3,bottoms-1.jpg,Bottoms,3

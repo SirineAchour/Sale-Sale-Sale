@@ -1,0 +1,59 @@
+#categories, .button, #sortBy
+{
+    /*-fx-font-size: 24px;*/
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(202,204,212,0.3);
+    -fx-border-style: solid inside;
+    -fx-border-width: 1;
+   /*-fx-border-insets: 5;*/
+    -fx-border-radius: 5;
+    -fx-border-color: rgba(202,204,212,1);
+}
+
+.clickable:hover{
+    -fx-cursor : hand;
+}
+.old_price, #old_price{
+    -fx-strikethrough: true;
+}
+.new_price, #new_price{
+    -fx-font-weight: bold;
+}
+.reduction, #reduction{
+    -fx-font-weight: bold;
+    -fx-fill: red;
+}
+
+.scroll-pane, .flow-pane, .anchor-pane{
+    -fx-background-color: rgba(246,184,226,0.2);
+}
+
+#sale{
+    -fx-font-family : "Permanent Marker";
+    -fx-font-size: 40px;
+    -fx-stroke: yellow;
+    -fx-stroke-width: 1;
+    -fx-fill: black;
+}
+.button:hover, .combo-box:hover{
+    -fx-cursor: hand;
+}
+
+.combo-box .combo-box-popup .list-cell:hover {
+    -fx-text-fill: white ;
+    -fx-background-color: rgba(169,49,242,1);
+    -fx-cursor: hand;
+}
+.image-border{
+    -fx-border-color: rgba(169,49,242,1);
+    -fx-border-style: solid;
+    -fx-border-width: 1;
+}
+.item-title{
+-fx-font-weight: bold;
+-fx-font-size: 25px;
+}
+#store_name{
+-fx-font-weight: bold;
+-fx-font-size: 16px;
+}

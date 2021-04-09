@@ -8,6 +8,7 @@ public class Offer implements Comparable<Offer>{
     public float percentage;
     public String filename;
     public String category;
+    public float new_price;
     public int visits = 0;
 
     @Override
